@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnSubHub — 1-Click Subscription & Dark Pattern Killer</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-glass {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(244, 63, 94, 0.18) 0%, rgba(245, 158, 11, 0.10) 35%, transparent 70%);
+    }
+  </style>
+</head>
+<body class="bg-[#090d16] text-slate-100 min-h-screen flex flex-col selection:bg-rose-500 selection:text-white antialiased">
+
+  <!-- ================= TOP TICKER ================= -->
+  <div class="bg-gradient-to-r from-rose-600 via-amber-600 to-rose-600 text-white text-xs py-2 px-4 text-center font-bold tracking-wide shadow-md flex items-center justify-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+    <span>PROTECT YOUR MONEY: Over 5,000+ Verified Direct Cancellation Endpoints & RBI / Legal Refund Drafts. 100% Free.</span>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="border-b border-white/5 bg-[#090d16]/80 backdrop-blur-2xl sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3.5 cursor-pointer" onclick="resetSearch()">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 via-rose-600 to-amber-500 flex items-center justify-center text-white shadow-xl shadow-rose-500/20 border border-white/10">
+          <i data-lucide="scissors" class="w-6 h-6 stroke-[2.5]"></i>
+        </div>
+        <div>
+          <div class="text-xl font-black tracking-tight text-white flex items-center gap-1.5">
+            <span>UnSub</span><span class="text-rose-500">Hub</span>
+            <span class="px-2 py-0.5 rounded-md bg-rose-500/10 border border-rose-500/20 text-[10px] font-black text-rose-400">PRO</span>
+          </div>
+          <p class="text-[11px] text-slate-400 font-medium">Bypass Dark Patterns & Stop Recurring Charges</p>
+        </div>
+      </div>
+
+      <!-- Header Stats & Links -->
+      <div class="flex items-center gap-3">
+        <div class="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/10 text-xs">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-slate-300 font-semibold"><strong class="text-white">5,000</strong> Apps Indexed</span>
+        </div>
+
+        <a 
+          href="#upi-guide" 
+          class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs font-bold text-slate-300 hover:text-white hover:border-slate-700 transition"
+        >
+          <i data-lucide="shield-alert" class="w-4 h-4 text-amber-400"></i>
+          <span>UPI Mandate Revoke</span>
+        </a>
+
+        <a 
+          href="https://github.com" 
+          target="_blank"
+          class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white text-xs font-black shadow-lg shadow-rose-600/20 transition"
+        >
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-white"></i>
+          <span>Star on GitHub</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-12 pb-14 px-4 sm:px-6 lg:px-8 overflow-hidden hero-glow">
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      
+      <!-- Feature Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-400 text-xs font-bold mb-6 shadow-sm">
+        <i data-lucide="zap" class="w-3.5 h-3.5 text-rose-400"></i>
+        <span>1-Click Bypass: Skip Retention Traps, Surveys & Penalty Fees</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15]">
+        Cancel ANY Subscription in <br class="hidden sm:inline" />
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-rose-400 via-amber-300 to-rose-400">
+          1-Click & Get Your Money Back.
+        </span>
+      </h1>
+
+      <p class="mt-4 text-sm sm:text-base text-slate-400 max-w-2xl mx-auto font-normal leading-relaxed">
+        Apps make cancellation nearly impossible so they can silently auto-debit your bank. 
+        Search <strong class="text-slate-200">5,000+ apps</strong> to find their real cancellation link, avoid exit fees, and generate a <strong class="text-slate-200">RBI / Legal Refund Notice</strong>.
+      </p>
+
+      <!-- SEARCH BAR -->
+      <div class="mt-8 max-w-2xl mx-auto">
+        <div class="relative flex items-center bg-[#131b2e] border-2 border-slate-700/80 rounded-2xl p-2 shadow-2xl focus-within:border-rose-500 transition group">
+          <div class="pl-3 text-slate-400 group-focus-within:text-rose-400">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </div>
+          <input 
+            type="text" 
+            id="searchInput" 
+            oninput="handleSearch()"
+            placeholder="Search any app: Cult.fit, Hotstar, Netflix, Adobe, Spotify, Tinder..." 
+            class="w-full bg-transparent border-0 px-3.5 py-2.5 text-sm sm:text-base text-white placeholder-slate-500 focus:outline-none font-medium"
+          />
+          <button 
+            onclick="clearSearch()" 
+            id="clearSearchBtn"
+            class="hidden pr-3 text-slate-400 hover:text-white"
+          >
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <!-- Quick Trending Shortcuts -->
+        <div class="flex items-center justify-center gap-2 flex-wrap mt-3.5 text-xs text-slate-400">
+          <span class="text-slate-500 font-semibold">Popular:</span>
+          <button onclick="setSearch('Cult.fit')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 hover:text-white transition">Cult.fit</button>
+          <button onclick="setSearch('Hotstar')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 hover:text-white transition">Hotstar</button>
+          <button onclick="setSearch('Adobe')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 hover:text-white transition">Adobe</button>
+          <button onclick="setSearch('Netflix')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 hover:text-white transition">Netflix</button>
+          <button onclick="setSearch('Amazon Prime')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 hover:text-white transition">Prime</button>
+          <button onclick="setSearch('Tinder')" class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 hover:text-white transition">Tinder</button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CATEGORY BAR ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 w-full">
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none" id="categoryBar">
+      <button onclick="filterCategory('ALL')" class="category-btn active px-4 py-2 rounded-xl text-xs font-bold bg-rose-600 text-white transition whitespace-nowrap shadow-md shadow-rose-600/20">
+        All Services (<span id="totalCount">5,000</span>)
+      </button>
+      <button onclick="filterCategory('Streaming')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        🎬 Streaming & OTT
+      </button>
+      <button onclick="filterCategory('Gym')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        🏋️ Gym & Fitness
+      </button>
+      <button onclick="filterCategory('Software')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        💻 Software & Tools
+      </button>
+      <button onclick="filterCategory('Social')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        ❤️ Dating & Social
+      </button>
+      <button onclick="filterCategory('Shopping')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        🛒 Shopping & E-Com
+      </button>
+      <button onclick="filterCategory('Education')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        🎓 Education
+      </button>
+      <button onclick="filterCategory('Finance')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        💳 Finance & Banking
+      </button>
+      <button onclick="filterCategory('Hosting')" class="category-btn px-4 py-2 rounded-xl text-xs font-bold bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700 transition whitespace-nowrap">
+        🌐 Hosting & Cloud
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= CARDS GRID ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 w-full flex-1">
+    
+    <!-- Results Header -->
+    <div class="flex items-center justify-between mb-5">
+      <div class="text-xs font-semibold text-slate-400">
+        Showing <span id="visibleCount" class="text-white font-bold">5,000</span> verified services
+      </div>
+      <div class="text-xs text-emerald-400 flex items-center gap-1.5 font-bold">
+        <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+        <span>Direct 1-Click Backdoors Verified</span>
+      </div>
+    </div>
+
+    <!-- The Grid Container -->
+    <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Empty State / Custom App Generator -->
+    <div id="emptyState" class="hidden text-center py-12 px-6 bg-slate-900/80 rounded-3xl border border-slate-800 max-w-2xl mx-auto shadow-2xl">
+      <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+        <i data-lucide="shield-alert" class="w-7 h-7"></i>
+      </div>
+      <h3 class="text-xl font-bold text-white">App Not in Pre-Indexed List? No Problem!</h3>
+      <p class="text-xs text-slate-400 mt-2 max-w-md mx-auto leading-relaxed">
+        Even if <span id="searchedAppName" class="text-rose-400 font-bold">this app</span> isn't indexed, our engine can instantly generate its <strong class="text-slate-200">Google Play / Apple ID cancellation backdoor</strong> and a <strong class="text-slate-200">custom Legal Refund Demand Notice</strong>.
+      </p>
+      
+      <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button onclick="openCustomAppCancel()" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-rose-600/20 transition">
+          <i data-lucide="mail-warning" class="w-4 h-4"></i>
+          <span>Generate Legal Refund Notice for this App</span>
+        </button>
+
+        <a href="https://play.google.com/store/account/subscriptions" target="_blank" class="w-full sm:w-auto px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 border border-slate-700 transition">
+          <i data-lucide="play" class="w-4 h-4 text-emerald-400"></i>
+          <span>Check Play Store Auto-Pay</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= UPI AUTOPAY CANCELLATION GUIDE SECTION ================= -->
+  <section id="upi-guide" class="border-t border-slate-800/80 bg-[#0d1322] py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="text-center mb-10">
+        <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
+          Vital Financial Protection
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white mt-3">
+          How to Revoke UPI Autopay / Bank Mandates
+        </h2>
+        <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl mx-auto">
+          Even after canceling an app account, your bank or UPI app will keep debiting money unless you kill the active mandate. Here is how to do it in 30 seconds:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- PhonePe -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-purple-500/40 transition shadow-xl">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-black text-xl mb-4 border border-purple-500/20">
+            P
+          </div>
+          <h3 class="font-bold text-white text-base">PhonePe</h3>
+          <ol class="mt-3 text-xs text-slate-400 space-y-2 list-decimal list-inside leading-relaxed">
+            <li>Open PhonePe -> Tap your Profile Picture (Top Left).</li>
+            <li>Scroll to <strong class="text-slate-200">'AutoPay'</strong> under Payment Management.</li>
+            <li>Select the active merchant (e.g. Hotstar, Spotify).</li>
+            <li>Tap <strong class="text-rose-400 font-bold">'Remove AutoPay'</strong> & enter your UPI PIN.</li>
+          </ol>
+        </div>
+
+        <!-- Google Pay (GPay) -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-blue-500/40 transition shadow-xl">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-black text-xl mb-4 border border-blue-500/20">
+            G
+          </div>
+          <h3 class="font-bold text-white text-base">Google Pay (GPay)</h3>
+          <ol class="mt-3 text-xs text-slate-400 space-y-2 list-decimal list-inside leading-relaxed">
+            <li>Open Google Pay -> Tap Profile (Top Right).</li>
+            <li>Tap on <strong class="text-slate-200">'Autopay'</strong>.</li>
+            <li>Select the subscription mandate.</li>
+            <li>Tap <strong class="text-rose-400 font-bold">'Cancel Autopay'</strong> -> Confirm cancellation.</li>
+          </ol>
+        </div>
+
+        <!-- Paytm -->
+        <div class="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/40 transition shadow-xl">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-black text-xl mb-4 border border-cyan-500/20">
+            ₹
+          </div>
+          <h3 class="font-bold text-white text-base">Paytm</h3>
+          <ol class="mt-3 text-xs text-slate-400 space-y-2 list-decimal list-inside leading-relaxed">
+            <li>Open Paytm -> Search <strong class="text-slate-200">'Automatic Payments'</strong>.</li>
+            <li>Tap 'UPI Automatic Payments'.</li>
+            <li>Select the app or merchant subscription.</li>
+            <li>Tap <strong class="text-rose-400 font-bold">'Cancel Automatic Payment'</strong>.</li>
+          </ol>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-800/80 bg-[#090d16] py-8 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Built to protect consumer rights against deceptive dark patterns and forced renewals.</span>
+      </div>
+      <div>
+        100% Free Open Source Software &bull; MIT License &bull; Zero User Tracking
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL: LEGAL REFUND NOTICE GENERATOR ================= -->
+  <div id="refundModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 shadow-2xl relative">
+      
+      <!-- Close Button -->
+      <button onclick="closeRefundModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center">
+          <i data-lucide="mail-warning" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white" id="modalServiceName">Generate Legal Refund Notice</h3>
+          <p class="text-xs text-slate-400">Pre-drafted with Indian Consumer Protection Act 2019 clauses</p>
+        </div>
+      </div>
+
+      <!-- Inputs Form -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">Your Full Name</label>
+          <input type="text" id="userNameInput" value="Rahul Sharma" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-rose-500">
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">Registered Email Address</label>
+          <input type="text" id="userEmailInput" value="rahul@example.com" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-rose-500">
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">Amount Deducted (₹)</label>
+          <input type="text" id="amountDeductedInput" value="₹1,499" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-rose-500">
+        </div>
+        <div>
+          <label class="block text-[11px] font-semibold text-slate-400 mb-1">Send Email To (Support)</label>
+          <input type="text" id="supportEmailInput" readonly class="w-full bg-slate-950/60 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-300 font-mono focus:outline-none">
+        </div>
+      </div>
+
+      <!-- Live Generated Draft -->
+      <div class="relative">
+        <div class="flex items-center justify-between mb-1">
+          <span class="text-[11px] font-bold text-slate-300">Generated Email Draft:</span>
+          <button onclick="copyDraftToClipboard()" id="copyDraftBtn" class="flex items-center gap-1 text-[11px] font-bold text-rose-400 hover:text-rose-300">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span>Copy Email Text</span>
+          </button>
+        </div>
+        <textarea 
+          id="emailDraftText" 
+          rows="8" 
+          readonly 
+          class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3 text-xs text-slate-300 font-mono leading-relaxed focus:outline-none scrollbar-thin"
+        ></textarea>
+      </div>
+
+      <div class="mt-4 flex items-center justify-between gap-3">
+        <span class="text-[11px] text-slate-500">
+          💡 Send this immediately. Most payment gateways initiate refund within 24-48 hours upon legal notice.
+        </span>
+        <button onclick="sendViaClient()" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs flex items-center gap-1.5 whitespace-nowrap transition">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span>Open Email App</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Fallback local data for file:/// without web server -->
+  <script src="services.js"></script>
+  <!-- ================= APPLICATION JAVASCRIPT ================= -->
+  <script>
+    let servicesData = [];
+    let currentCategory = 'ALL';
+    let currentSelectedService = null;
+
+    let currentFilteredList = [];
+    let displayedCount = 60;
+    const PAGE_SIZE = 60;
+
+    // Load Data
+    async function loadServices() {
+      if (window.SERVICES_DATA && Array.isArray(window.SERVICES_DATA) && window.SERVICES_DATA.length > 0) {
+        servicesData = window.SERVICES_DATA;
+        document.getElementById('totalCount').innerText = servicesData.length.toLocaleString();
+        renderCards(servicesData);
+        return;
+      }
+      try {
+        const res = await fetch('services.json');
+        servicesData = await res.json();
+        document.getElementById('totalCount').innerText = servicesData.length.toLocaleString();
+        renderCards(servicesData);
+      } catch (err) {
+        console.error("Failed to load services.json:", err);
+      }
+    }
+
+    // Render Cards in Grid (Paginated for high performance with 5000+ items)
+    function renderCards(list, resetPagination = true) {
+      const grid = document.getElementById('servicesGrid');
+      const emptyState = document.getElementById('emptyState');
+      const countLabel = document.getElementById('visibleCount');
+
+      if (resetPagination) {
+        currentFilteredList = list;
+        displayedCount = PAGE_SIZE;
+        grid.innerHTML = '';
+      }
+
+      countLabel.innerText = list.length.toLocaleString();
+
+      if (list.length === 0) {
+        emptyState.classList.remove('hidden');
+        removeLoadMoreBtn();
+        return;
+      }
+      emptyState.classList.add('hidden');
+
+      const itemsToRender = list.slice(grid.children.length, displayedCount);
+
+      itemsToRender.forEach(item => {
+        const card = document.createElement('div');
+        card.className = "bg-[#111827]/90 border border-white/5 hover:border-slate-700 rounded-3xl p-5 flex flex-col justify-between transition hover:-translate-y-1 shadow-xl hover:shadow-2xl hover:shadow-rose-500/5 group relative overflow-hidden";
+
+        // Difficulty Badge Color
+        let diffColor = "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
+        if (item.difficulty === 'Medium') diffColor = "bg-amber-500/10 text-amber-400 border-amber-500/20";
+        if (item.difficulty.includes('Hard')) diffColor = "bg-rose-500/10 text-rose-400 border-rose-500/20";
+
+        // Real Logo fallback URL
+        const domain = item.domain || `${item.id.replace(/-/g, '')}.com`;
+        const logoUrl = item.logoUrl || `https://icon.horse/icon/${domain}`;
+        const refundDays = item.refundEligibleDays || 14;
+
+        card.innerHTML = `
+          <div>
+            <!-- Header: Category & Difficulty -->
+            <div class="flex items-center justify-between mb-3.5">
+              <span class="text-[10px] font-black uppercase tracking-wider text-slate-500 bg-slate-900/80 px-2 py-0.5 rounded-md border border-white/5">${item.category}</span>
+              <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${diffColor}">
+                ${item.difficulty} Cancellation
+              </span>
+            </div>
+
+            <!-- Service Name & Real Brand Logo -->
+            <div class="flex items-center gap-3.5 mb-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-slate-800/90 border border-white/10 p-2 flex items-center justify-center shrink-0 group-hover:scale-110 transition shadow-md">
+                <img 
+                  src="${logoUrl}" 
+                  alt="${item.name}" 
+                  class="w-full h-full object-contain rounded-lg"
+                  onerror="this.onerror=null; this.src='https://api.dicebear.com/7.x/identicon/svg?seed=${item.id}';"
+                />
+              </div>
+              <div class="overflow-hidden">
+                <h3 class="text-base font-extrabold text-white group-hover:text-rose-400 transition truncate">${item.name}</h3>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <i data-lucide="link-2" class="w-3 h-3 text-slate-500 shrink-0"></i>
+                  <span class="truncate">${domain}</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Dark Pattern Callout -->
+            <div class="mb-3.5 bg-rose-950/20 border border-rose-900/30 rounded-2xl p-3 text-xs text-rose-300 flex items-start gap-2.5">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-400 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-rose-200 font-bold">Cancellation Trap:</strong> ${item.darkPattern}
+              </div>
+            </div>
+
+            <!-- Detailed Steps List -->
+            <div class="space-y-1.5 mb-4 text-[11px] text-slate-300">
+              ${item.instructions.map((inst, idx) => `
+                <div class="flex items-start gap-2">
+                  <span class="w-4 h-4 rounded-full bg-slate-800 border border-slate-700 text-emerald-400 font-black text-[9px] flex items-center justify-center shrink-0 mt-0.5">${idx + 1}</span>
+                  <span class="leading-relaxed">${inst}</span>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Legal Meta Bar -->
+            <div class="bg-slate-900/60 rounded-xl px-3 py-2 border border-white/5 mb-4 text-[10px] text-slate-400 flex items-center justify-between">
+              <span class="flex items-center gap-1">
+                <i data-lucide="clock" class="w-3 h-3 text-amber-400"></i>
+                <span>Refund Window: <strong class="text-slate-200">${refundDays} Days</strong></span>
+              </span>
+              <span class="flex items-center gap-1">
+                <i data-lucide="shield-check" class="w-3 h-3 text-emerald-400"></i>
+                <span class="truncate max-w-[130px]">${item.legalClause || 'Consumer Law'}</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-3 border-t border-white/5 grid grid-cols-2 gap-2 mt-auto">
+            <a 
+              href="${item.directCancelUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-rose-600/20 transition"
+            >
+              <span>1-Click Cancel</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+
+            <button 
+              onclick="openRefundModal('${item.id}')"
+              class="w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs flex items-center justify-center gap-1.5 border border-slate-700 transition"
+            >
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>Refund Draft</span>
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      renderLoadMoreBtn();
+      lucide.createIcons();
+    }
+
+    function renderLoadMoreBtn() {
+      removeLoadMoreBtn();
+      if (displayedCount >= currentFilteredList.length) return;
+
+      const btnContainer = document.createElement('div');
+      btnContainer.id = 'loadMoreContainer';
+      btnContainer.className = 'col-span-full text-center py-6';
+      btnContainer.innerHTML = `
+        <button onclick="loadMoreCards()" class="px-8 py-3 rounded-2xl bg-slate-900 border border-slate-800 hover:border-slate-700 hover:bg-slate-800 text-white font-bold text-xs transition shadow-xl">
+          Load More Services (${(currentFilteredList.length - displayedCount).toLocaleString()} remaining)...
+        </button>
+      `;
+      document.getElementById('servicesGrid').appendChild(btnContainer);
+    }
+
+    function removeLoadMoreBtn() {
+      const old = document.getElementById('loadMoreContainer');
+      if (old) old.remove();
+    }
+
+    function loadMoreCards() {
+      removeLoadMoreBtn();
+      displayedCount += PAGE_SIZE;
+      renderCards(currentFilteredList, false);
+    }
+
+    // Search Filter
+    function handleSearch() {
+      const rawInput = document.getElementById('searchInput').value;
+      const query = rawInput.toLowerCase().trim();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (query.length > 0) clearBtn.classList.remove('hidden');
+      else clearBtn.classList.add('hidden');
+
+      const searchedAppNameLabel = document.getElementById('searchedAppName');
+      if (searchedAppNameLabel) {
+        searchedAppNameLabel.innerText = rawInput.trim() ? `"${rawInput.trim()}"` : 'this app';
+      }
+
+      const filtered = servicesData.filter(item => {
+        const matchesQuery = item.name.toLowerCase().includes(query) || 
+                             item.category.toLowerCase().includes(query) ||
+                             (item.domain && item.domain.toLowerCase().includes(query)) ||
+                             item.darkPattern.toLowerCase().includes(query);
+        const matchesCategory = (currentCategory === 'ALL' || item.category.toLowerCase().includes(currentCategory.toLowerCase()));
+        return matchesQuery && matchesCategory;
+      });
+
+      renderCards(filtered);
+    }
+
+    // Open Custom Refund Modal for ANY Unlisted App
+    function openCustomAppCancel() {
+      const rawInput = document.getElementById('searchInput').value.trim() || 'My App Subscription';
+      currentSelectedService = {
+        name: rawInput,
+        refundEmail: `support@${rawInput.toLowerCase().replace(/[^a-z0-9]/g, '')}.com`,
+        legalClause: "Consumer Protection Act 2019 (Section 2(47) - unfair trade practice of unauthorized auto-debit)"
+      };
+      document.getElementById('modalServiceName').innerText = `Demand Legal Refund: ${rawInput}`;
+      document.getElementById('supportEmailInput').value = `support@${rawInput.toLowerCase().replace(/[^a-z0-9]/g, '')}.com`;
+      updateDraftText();
+      document.getElementById('refundModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function clearSearch() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      handleSearch();
+    }
+
+    function resetSearch() {
+      clearSearch();
+      filterCategory('ALL');
+    }
+
+    function setSearch(name) {
+      document.getElementById('searchInput').value = name;
+      handleSearch();
+      window.scrollTo({ top: 350, behavior: 'smooth' });
+    }
+
+    // Category Filter
+    function filterCategory(cat) {
+      currentCategory = cat;
+      
+      // Update UI button styles
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('bg-rose-600', 'text-white', 'shadow-md', 'shadow-rose-600/20');
+        btn.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        if ((cat === 'ALL' && btn.innerText.includes('All Services')) || (cat !== 'ALL' && btn.innerText.toLowerCase().includes(cat.toLowerCase()))) {
+          btn.classList.add('bg-rose-600', 'text-white', 'shadow-md', 'shadow-rose-600/20');
+          btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+        }
+      });
+
+      handleSearch();
+    }
+
+    // Open Refund Modal for a Specific Service
+    function openRefundModal(serviceId) {
+      const item = servicesData.find(s => s.id === serviceId);
+      currentSelectedService = item;
+      
+      document.getElementById('modalServiceName').innerText = `Demand Refund: ${item.name}`;
+      document.getElementById('supportEmailInput').value = item.refundEmail || 'support@company.com';
+      
+      updateDraftText();
+      document.getElementById('refundModal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeRefundModal() {
+      document.getElementById('refundModal').classList.add('hidden');
+    }
+
+    // Live update email draft
+    function updateDraftText() {
+      const userName = document.getElementById('userNameInput').value || 'Consumer';
+      const userEmail = document.getElementById('userEmailInput').value || 'consumer@email.com';
+      const amount = document.getElementById('amountDeductedInput').value || '₹0';
+      const sName = currentSelectedService ? currentSelectedService.name : 'Your Service';
+      const legalRef = currentSelectedService ? currentSelectedService.legalClause : 'Consumer Protection Regulations';
+
+      const draft = `Subject: URGENT: Demand for Immediate Refund & Cancellation of Subscription [Account: ${userEmail}]
+
+Dear ${sName} Support Team,
+
+I am writing to formally request the IMMEDIATE CANCELLATION of my subscription associated with the email address ${userEmail} and a FULL REFUND of ${amount} charged to my payment method without clear express affirmative consent.
+
+Reason for Dispute:
+1. Deceptive dark patterns and failure to provide an explicit, unambiguous 48-hour pre-debit billing notification prior to automatic deduction.
+2. The subscription renewal was charged contrary to statutory cooling-off consumer protection standards and ${legalRef}.
+3. I have ceased using the service and do not intend to avail any features in this billing period.
+
+Please confirm within 48 hours:
+1. Cancellation of all active recurring mandates / autopay authorizations.
+2. Processing of the full refund of ${amount} to the original payment source.
+
+Failing an amicable resolution, I reserve the right to escalate this matter to the National Consumer Helpline (NCH / INGRAM portal) and initiate a chargeback / mandate dispute through my issuing bank and the Reserve Bank of India (RBI) Ombudsman.
+
+Sincerely,
+${userName}
+Registered Email: ${userEmail}
+Date: ${new Date().toLocaleDateString('en-GB')}`;
+
+      document.getElementById('emailDraftText').value = draft;
+    }
+
+    // Event listeners to dynamically update the draft
+    document.getElementById('userNameInput').addEventListener('input', updateDraftText);
+    document.getElementById('userEmailInput').addEventListener('input', updateDraftText);
+    document.getElementById('amountDeductedInput').addEventListener('input', updateDraftText);
+
+    // Copy draft
+    function copyDraftToClipboard() {
+      const text = document.getElementById('emailDraftText').value;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copyDraftBtn');
+      btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i><span class="text-emerald-400 font-bold">Copied!</span>`;
+      lucide.createIcons();
+      setTimeout(() => {
+        btn.innerHTML = `<i data-lucide="copy" class="w-3.5 h-3.5"></i><span>Copy Email Text</span>`;
+        lucide.createIcons();
+      }, 2000);
+    }
+
+    // Open Email Client
+    function sendViaClient() {
+      const to = document.getElementById('supportEmailInput').value;
+      const body = encodeURIComponent(document.getElementById('emailDraftText').value);
+      const subject = encodeURIComponent(`URGENT: Demand for Immediate Refund & Cancellation - ${document.getElementById('userEmailInput').value}`);
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    }
+
+    // Initialize
+    loadServices();
+  </script>
+</body>
+</html>

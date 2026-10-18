@@ -1,0 +1,8 @@
+# Development & temporary build scripts
+expand_5000.js
+merge_all.js
+convert.js
+
+# OS files
+.DS_Store
+Thumbs.db
